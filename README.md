@@ -1,4 +1,4 @@
-# IoT QA Automation Portfolio
+# IoT QA Automation DEVOPS Portfolio
 
 This repository showcases a QA automation framework built for a Smart Home IoT Dashboard demo site. It includes UI, API, and CI/CD testing using modern tools and best practices.
 
