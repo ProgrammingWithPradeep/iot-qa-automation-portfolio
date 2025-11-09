@@ -70,13 +70,15 @@ jobs:
       # ✅ Commit report to main branch
       - name: Commit Playwright report to repo
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+           GH_PAT: ${{ secrets.GH_PAT }}
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${GH_PAT}@github.com/ProgrammingWithPradeep/qa-automation-devops-portfolio.git
+          git pull origin main
           git add playwright-tests/reports/latest/
-          git commit -m "Update Playwright report"
-          git push
+          git commit -m "Update Playwright report" || echo "No changes to commit"
+          git push origin main
         continue-on-error: true
 
       # Setup Python for API tests
